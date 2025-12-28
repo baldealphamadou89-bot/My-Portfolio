@@ -1,0 +1,474 @@
+/* =========================================================
+   VARIABLES
+========================================================= */
+:root{
+  --bg:#0b0f17;
+  --card:#0f1625;
+  --card2: rgba(15,22,37,.78);
+  --card3: rgba(15,22,37,.70);
+  --text:#e9eefc;
+  --muted:#a9b3cc;
+  --line:rgba(255,255,255,.10);
+
+  --brand:#7c5cff;
+  --brand2:#2ee59d;
+
+  --shadow: 0 20px 60px rgba(0,0,0,.35);
+  --radius: 16px;
+}
+
+[data-theme="light"]{
+  --bg:#f7f8fc;
+  --card:#ffffff;
+  --card2: rgba(255,255,255,.85);
+  --card3: rgba(255,255,255,.70);
+  --text:#0d1321;
+  --muted:#5b677a;
+  --line:rgba(13,19,33,.12);
+  --shadow: 0 20px 60px rgba(13,19,33,.10);
+}
+
+/* =========================================================
+   BASE
+========================================================= */
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background:
+    radial-gradient(1200px 600px at 20% 10%, rgba(124,92,255,.22), transparent 55%),
+    radial-gradient(900px 450px at 90% 20%, rgba(46,229,157,.16), transparent 55%),
+    var(--bg);
+  color:var(--text);
+}
+
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.98}
+
+.container{
+  width:min(1100px,92%);
+  margin-inline:auto;
+}
+
+/* =========================================================
+   BRAND (HEADER TITLE)
+========================================================= */
+.brand{
+  font-weight:900;
+  letter-spacing:.3px;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+
+/* Alpha = noir (light) / blanc (dark) */
+.brand-alpha{
+  color:#000;
+  font-weight:900;
+}
+[data-theme="dark"] .brand-alpha{
+  color:var(--text);
+}
+
+/* Full-Stack = violet */
+.brand-stack{
+  color:var(--brand);
+  font-weight:800;
+}
+
+/* =========================================================
+   HEADER / NAV
+========================================================= */
+.header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter: blur(12px);
+  background: rgba(11,15,23,.78);
+  border-bottom:1px solid var(--line);
+}
+[data-theme="light"] .header{
+  background: rgba(247,248,252,.85);
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+  gap:14px;
+}
+
+/* ✅ MENU */
+.menu{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+/* ✅ Liens menu = boutons transparents (outline) */
+.menu a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 16px;
+  border-radius:14px;
+  background: transparent;              /* ✅ fond supprimé */
+  border:1px solid var(--line);
+  color:var(--text);
+  font-weight:700;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, color .18s ease;
+}
+
+/* hover */
+.menu a:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(0,0,0,.18);
+  filter: saturate(1.05);
+  color: var(--brand);
+}
+
+/* ✅ actif = gradient */
+.menu a.active,
+.menu a[aria-current="page"]{
+  background: linear-gradient(135deg,var(--brand),var(--brand2));
+  color:#0b0f17;
+  border:none;
+  font-weight:900;
+  box-shadow: 0 18px 45px rgba(0,0,0,.22);
+}
+
+.nav-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.burger{display:none}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 16px;
+  border-radius:14px;
+  background: transparent;              /* ✅ fond supprimé */
+  border:1px solid var(--line);
+  color:var(--text);
+  cursor:pointer;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, color .18s ease;
+}
+
+/* ✅ Bouton principal = garde gradient */
+.btn.primary{
+  border:none;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  color:#0b0f17;
+  font-weight:800;
+}
+
+.btn.ghost{background:transparent}
+.btn.small{padding:9px 12px;font-size:.95rem}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 45px rgba(0,0,0,.25);
+  filter:saturate(1.05);
+  color: var(--brand);
+}
+.btn.primary:hover{
+  color:#0b0f17; /* évite que le texte devienne violet */
+}
+
+.btn:active{transform:none}
+
+.select{
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:transparent;
+  color:var(--text);
+}
+
+/* Disabled buttons (Live soon / Demo soon) */
+.btn.disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  pointer-events:none;
+  filter:none;
+  box-shadow:none;
+  transform:none;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.hero{padding:52px 0 18px}
+
+.hero-grid{
+  display:grid;
+  gap:22px;
+  grid-template-columns:1.25fr .75fr;
+}
+
+.badge{
+  display:inline-flex;
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid rgba(124,92,255,.3);
+  background:linear-gradient(135deg,rgba(124,92,255,.15),rgba(46,229,157,.08));
+  color:var(--muted);
+}
+
+h1{
+  font-size:clamp(2rem,5vw,3rem);
+  margin:14px 0;
+}
+
+.grad{
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.lead{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:20px 0;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+.stats{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.stat{
+  padding:14px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:var(--card3);
+  transition:.2s ease;
+}
+.stat:hover{transform:translateY(-3px)}
+.stat strong{font-size:1.3rem}
+.stat span{color:var(--muted)}
+
+/* =========================================================
+   CARDS
+========================================================= */
+.card{
+  border:1px solid var(--line);
+  background:rgba(15,22,37,.86);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+  transition:.25s ease;
+}
+[data-theme="light"] .card{background:#fff}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 28px 70px rgba(0,0,0,.35);
+}
+
+/* Featured project card */
+.project.featured{
+  border: 1px solid rgba(124,92,255,.35);
+}
+
+/* =========================================================
+   PROFILE
+========================================================= */
+.profile{display:flex;flex-direction:column;gap:10px}
+
+.profile-top{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.avatar-img{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--brand);
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+
+.chip{
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--card3);
+  color:var(--muted);
+}
+
+/* ✅ SOCIAL = outline transparent */
+.social{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+.social a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 16px;
+  border-radius:14px;
+  background: transparent;             /* ✅ fond supprimé */
+  border:1px solid var(--line);
+  color:var(--text);
+  font-weight:800;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, color .18s ease;
+}
+
+.social a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 45px rgba(0,0,0,.25);
+  filter:saturate(1.05);
+  color: var(--brand);
+}
+
+/* =========================================================
+   GRIDS
+========================================================= */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer{
+  border-top:1px solid var(--line);
+  padding:18px 0;
+  margin-top:30px;
+}
+.foot{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  color:var(--muted);
+}
+
+/* =========================================================
+   FORMS (VISIBLE DESKTOP + MOBILE)
+========================================================= */
+#contactForm{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+#contactForm label{
+  display:block;
+  color:var(--muted);
+  font-weight:700;
+  letter-spacing:.2px;
+}
+
+#contactForm input,
+#contactForm textarea{
+  width:100%;
+  display:block;
+  margin-top:8px;
+  padding:12px 14px;
+  border-radius:14px;
+
+  /* ✅ champs visibles */
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+
+  color:var(--text);
+  outline:none;
+}
+
+[data-theme="light"] #contactForm input,
+[data-theme="light"] #contactForm textarea{
+  background: rgba(13,19,33,.04);
+  border: 1px solid rgba(13,19,33,.12);
+  color: var(--text);
+}
+
+#contactForm input::placeholder,
+#contactForm textarea::placeholder{
+  color: rgba(169,179,204,.70);
+}
+[data-theme="light"] #contactForm input::placeholder,
+[data-theme="light"] #contactForm textarea::placeholder{
+  color: rgba(91,103,122,.70);
+}
+
+#contactForm textarea{
+  min-height:160px;
+  resize:vertical;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus{
+  border-color: rgba(124,92,255,.70);
+  box-shadow: 0 10px 26px rgba(124,92,255,.16);
+}
+
+#contactForm button{
+  width: fit-content;
+  margin-top:4px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .grid-3,.grid-2{grid-template-columns:1fr}
+  .burger{display:inline-flex}
+
+  .menu{
+    display:none;
+    position:absolute;
+    right:4%;
+    top:62px;
+    flex-direction:column;
+    background: rgba(15,22,37,.94);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:10px;
+    gap:10px;
+    box-shadow: var(--shadow);
+  }
+  [data-theme="light"] .menu{
+    background: rgba(255,255,255,.96);
+  }
+
+  .menu.open{display:flex}
+
+  /* Sur mobile : animations plus légères */
+  .btn:hover,
+  .social a:hover,
+  .menu a:hover{
+    transform:none;
+    box-shadow:none;
+    filter:none;
+  }
+
+  .project-chips{ margin-top:12px; }
+}
