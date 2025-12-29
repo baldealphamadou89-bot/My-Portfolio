@@ -6,7 +6,7 @@
   <title>Portfolio Full-Stack | Alpha Balde</title>
   <meta name="description" content="Portfolio Full-Stack / AI-Native : projets, GitHub, stack, contact." />
   <link rel="stylesheet" href="style.css">
-<script defer src="app.js"></script>
+  <script defer src="app.js"></script>
 </head>
 
 <body>
@@ -19,10 +19,10 @@
       </a>
 
       <nav class="menu" id="menu">
-        <a class="nav-btn active" href="index.html">Accueil</a>
-        <a class="nav-btn" href="projets.html">Projets</a>
-        <a class="nav-btn" href="apropos.html">À propos</a>
-        <a class="nav-btn" href="contact.html">Contact</a>
+        <a class="nav-btn active" href="index.html" data-i18n="nav_home">Accueil</a>
+        <a class="nav-btn" href="projets.html" data-i18n="nav_projects">Projets</a>
+        <a class="nav-btn" href="apropos.html" data-i18n="nav_about">À propos</a>
+        <a class="nav-btn" href="contact.html" data-i18n="nav_contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
@@ -30,8 +30,8 @@
           <option value="fr">FR</option>
           <option value="en">EN</option>
         </select>
-        <button class="btn ghost" id="themeBtn" type="button">🌙</button>
-        <button class="btn ghost burger" id="burger" type="button">☰</button>
+        <button class="btn ghost" id="themeBtn" type="button" aria-label="Toggle theme">🌙</button>
+        <button class="btn ghost burger" id="burger" type="button" aria-label="Open menu">☰</button>
       </div>
     </div>
   </header>
@@ -41,28 +41,37 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <p class="badge">Full-Stack · AI-Native · Disponible</p>
+          <p class="badge" data-i18n="badge">Full-Stack · AI-Native · Disponible</p>
 
           <h1>
-            I develop
-            <span class="grad">web & IA driven Products </span> 🚀
+            <span data-i18n="hero_title_a">Je construis des produits</span>
+            <span class="grad" data-i18n="hero_title_b">web & IA</span> 🚀
           </h1>
 
-          <p data-i18n="hero_lead">
+          <p class="lead" data-i18n="hero_lead">
             Développeur orienté produit : UI claire, APIs, déploiement.
             Approche AI-Native pour accélérer la structuration et l’itération.
           </p>
 
           <div class="cta">
-            <a class="btn primary" href="projets.html">Voir mes projets</a>
-            <a class="btn primary" href="contact.html">Me contacter</a>
-            <a class="btn primary" href="#github">GitHub</a>
+            <a class="btn primary" href="projets.html" data-i18n="cta_projects">Voir mes projets</a>
+            <a class="btn primary" href="contact.html" data-i18n="cta_contact">Me contacter</a>
+            <a class="btn primary" href="#github" data-i18n="cta_github">GitHub</a>
           </div>
 
           <div class="stats">
-            <div class="stat"><strong>Front</strong><span>UI/UX</span></div>
-            <div class="stat"><strong>API</strong><span>fetch / async</span></div>
-            <div class="stat"><strong>AI</strong><span>Workflows</span></div>
+            <div class="stat">
+              <strong data-i18n="stat_front">Front</strong>
+              <span data-i18n="stat_front_sub">UI/UX</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="stat_api">API</strong>
+              <span data-i18n="stat_api_sub">fetch / async</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="stat_ai">AI</strong>
+              <span data-i18n="stat_ai_sub">Workflows</span>
+            </div>
           </div>
         </div>
 
@@ -72,7 +81,7 @@
             <img src="alpha-balde.jpg" alt="Alpha Balde" class="avatar-img">
             <div>
               <h3 style="margin:0;">Alpha Balde</h3>
-              <p class="muted">Full-Stack Developer · AI-Native Builder</p>
+              <p class="muted" data-i18n="profile_role">Full-Stack Developer · AI-Native Builder</p>
             </div>
           </div>
 
@@ -85,8 +94,8 @@
           </div>
 
           <div class="social">
-            <a class="btn primary small" href="https://github.com/baldealphamadou89-bot" target="_blank">GitHub</a>
-            <a class="btn primary small" href="https://www.linkedin.com/in/alpha-balde-4b554a187" target="_blank">LinkedIn</a>
+            <a class="btn primary small" href="https://github.com/baldealphamadou89-bot" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn primary small" href="https://www.linkedin.com/in/alpha-balde-4b554a187" target="_blank" rel="noreferrer">LinkedIn</a>
             <a class="btn primary small" href="mailto:alpha.balde@pursuit.org">Email</a>
           </div>
         </div>
@@ -95,98 +104,91 @@
 
     <!-- ================= PROJECTS ================= -->
     <section class="section" id="projects">
-      <div class="container grid-3">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="section_projects_title">Projets</h2>
+          <p class="muted" data-i18n="section_projects_sub">Sélection de projets “recruteur-friendly”.</p>
+        </div>
 
-        <!-- PROJECT 1 -->
-        <article class="card project">
-          <div class="project-top">
-            <span class="tag">Full-Stack</span>
-            <span class="tag">Portfolio</span>
-          </div>
-          <h3>Portfolio Full-Stack / AI-Native</h3>
-          <p class="muted">Multi-pages, responsive, dark mode, contact form.</p>
-          <div class="project-actions">
-            <a class="btn small ghost" href="https://github.com/baldealphamadou89-bot/portfolio-fullstack" target="_blank">Repo</a>
-            <a class="btn small" href="#" target="_blank">Live</a>
-          </div>
-        </article>
+        <div class="grid-3">
 
-        <!-- PROJECT 2 -->
-        <article class="card project">
-  <div class="project-top">
-    <span class="tag">AI</span>
-    <span class="tag">Real Estate</span>
-    <span class="tag">Finance</span>
-  </div>
+          <!-- PROJECT 1 -->
+          <article class="card project">
+            <div class="project-top">
+              <span class="tag">Full-Stack</span>
+              <span class="tag">Portfolio</span>
+            </div>
+            <h3 data-i18n="card_port_title">Portfolio Full-Stack / AI-Native</h3>
+            <p class="muted" data-i18n="card_port_desc">Multi-pages, responsive, dark mode, contact form.</p>
+            <div class="project-actions">
+              <a class="btn small ghost" href="https://github.com/baldealphamadou89-bot/My-Portfolio" target="_blank" rel="noreferrer" data-i18n="btn_repo">Repo</a>
+              <a class="btn small" href="https://baldealphamadou89-bot.github.io/My-Portfolio/" target="_blank" rel="noreferrer" data-i18n="btn_live">Live</a>
+            </div>
+          </article>
 
-  <h3>USA Real Estate AI Advisor</h3>
+          <!-- PROJECT 2 -->
+          <article class="card project">
+            <div class="project-top">
+              <span class="tag">AI</span>
+              <span class="tag">Real Estate</span>
+              <span class="tag">Finance</span>
+            </div>
 
-  <p class="muted">
-    AI-powered tool that automates real estate due diligence for U.S. property auctions,
-    combining financial intelligence and generative AI to secure investments.
-  </p>
+            <h3 data-i18n="card_re_title">USA Real Estate AI Advisor</h3>
 
-  <div class="project-actions">
-    <!-- Remplace # par ton lien LIVE quand prêt -->
-    <a class="btn small" href="https://baldealphamadou89-bot-usa-real-estate-ai-advisor-tru6ytjjahqbw.streamlit.app/" target="_blank" rel="noreferrer">
-      Live
-    </a>
+            <p class="muted" data-i18n="card_re_desc">
+              AI-powered tool that automates real estate due diligence for U.S. property auctions,
+              combining financial intelligence and generative AI to secure investments.
+            </p>
 
-    <!-- Lien GitHub si disponible -->
-    <a class="btn small ghost" href="https://github.com/baldealphamadou89-bot" target="_blank" rel="noreferrer">
-      GitHub
-    </a>
-  </div>
-</article>
+            <div class="project-actions">
+              <a class="btn small" href="https://baldealphamadou89-bot-usa-real-estate-ai-advisor-tru6ytjjahqbw.streamlit.app/" target="_blank" rel="noreferrer" data-i18n="btn_live">
+                Live
+              </a>
 
+              <a class="btn small ghost" href="https://github.com/baldealphamadou89-bot" target="_blank" rel="noreferrer" data-i18n="btn_github">
+                GitHub
+              </a>
+            </div>
+          </article>
 
-        <!-- PROJECT 3 – FINTECH AI -->
-        <article class="card project featured">
-          <div class="project-top">
-            <span class="tag">AI</span>
-            <span class="tag">Fintech</span>
-          </div>
-          <h3>Fintech AI</h3>
-          <p class="muted">
-            FinTeach AI is an intelligent and multilingual (English,French and Spanish) financial mentor designed to democratize financial education. The application allows users to ask complex questions about savings, investments, or budget management, and obtain instant educational explanations.
-          </p>
-          <div class="project-actions">
-            <a class="btn small ghost"
-               href="https://github.com/baldealphamadou89-bot/FintechAI"
-               target="_blank">
-              Repo
-            </a>
-            <a class="btn small"
-               href="https://baldealphamadou89-bot.github.io/FintechAI/"
-               target="_blank">
-              Live
-            </a>
-          </div>
-        </article>   
-        
+          <!-- PROJECT 3 -->
+          <article class="card project featured">
+            <div class="project-top">
+              <span class="tag">AI</span>
+              <span class="tag">Fintech</span>
+            </div>
+            <h3 data-i18n="card_fin_title">Fintech AI</h3>
+            <p class="muted" data-i18n="card_fin_desc">
+              FinTeach AI is an intelligent and multilingual financial mentor designed to democratize financial education.
+            </p>
+            <div class="project-actions">
+              <a class="btn small ghost" href="https://github.com/baldealphamadou89-bot/FintechAI" target="_blank" rel="noreferrer" data-i18n="btn_repo">Repo</a>
+              <a class="btn small" href="https://baldealphamadou89-bot.github.io/FintechAI/" target="_blank" rel="noreferrer" data-i18n="btn_live">Live</a>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
-      
-      
-
 
     <!-- ================= GITHUB ================= -->
     <section class="section" id="github">
       <div class="container grid-2">
         <div class="card">
-          <h3>GitHub</h3>
+          <h3 data-i18n="github_title">GitHub</h3>
           <p class="muted">baldealphamadou89-bot</p>
           <div class="cta">
-            <a class="btn primary" href="https://github.com/baldealphamadou89-bot" target="_blank">Profil</a>
-            <a class="btn" href="https://github.com/baldealphamadou89-bot?tab=repositories" target="_blank">Repos</a>
+            <a class="btn primary" href="https://github.com/baldealphamadou89-bot" target="_blank" rel="noreferrer" data-i18n="github_profile">Profil</a>
+            <a class="btn" href="https://github.com/baldealphamadou89-bot?tab=repositories" target="_blank" rel="noreferrer" data-i18n="github_repos">Repos</a>
           </div>
         </div>
 
         <div class="card">
-          <h3>Repos clés</h3>
+          <h3 data-i18n="github_key_repos">Repos clés</h3>
           <div class="chips">
-            <span class="chip">portfolio-fullstack</span>
-            <span class="chip">api-dashboard</span>
+            <span class="chip">My-Portfolio</span>
+            <span class="chip">USA-Real-Estate-AI</span>
             <span class="chip">FintechAI</span>
           </div>
         </div>
@@ -198,13 +200,8 @@
   <footer class="footer">
     <div class="container foot">
       <p>© <span id="year"></span> Alpha Balde.</p>
-      <p class="muted">Full-Stack · AI-Native</p>
+      <p class="muted" data-i18n="footer_tag">Full-Stack · AI-Native</p>
     </div>
   </footer>
 </body>
 </html>
-
-
-
-
-
