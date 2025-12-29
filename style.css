@@ -471,4 +471,103 @@ h1{
   }
 
   .project-chips{ margin-top:12px; }
+   /* =========================================================
+   MOBILE BOOST (Lisibilité + UX recruteur)
+   À coller tout en bas du fichier
+========================================================= */
+@media (max-width: 600px){
+
+  /* Lisibilité globale */
+  body{
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .container{
+    width: min(1100px, 94%);
+  }
+
+  /* Titres plus lisibles */
+  h1{
+    font-size: clamp(2.1rem, 7vw, 2.8rem);
+    line-height: 1.12;
+  }
+
+  .lead{
+    font-size: 1.05rem;
+  }
+
+  /* Cartes plus respirantes */
+  .card{
+    padding: 16px;
+  }
+
+  /* Hero : espacement + ordre logique */
+  .hero{
+    padding: 38px 0 14px;
+  }
+
+  /* La carte profil passe en premier (meilleur sur mobile) */
+  .profile{
+    order: -1;
+  }
+
+  /* Avatar un peu plus grand */
+  .avatar-img{
+    width: 84px;
+    height: 84px;
+  }
+
+  /* Boutons faciles à cliquer (doigt) */
+  .btn{
+    padding: 14px 18px;
+    border-radius: 16px;
+    font-size: 1rem;
+  }
+
+  .btn.small{
+    padding: 12px 14px;
+    font-size: .98rem;
+  }
+
+  /* CTA : boutons sur 2 lignes propres */
+  .cta{
+    gap: 10px;
+  }
+  .cta .btn{
+    flex: 1;
+    min-width: 140px;
+  }
+
+  /* Projets : actions Repo/Live en “2 gros boutons” */
+  .project-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .project-actions a{
+    flex:1;
+    text-align:center;
+  }
+
+  /* Tags un peu plus compacts */
+  .tag{
+    font-size: .85rem;
+    padding: 6px 10px;
+  }
+
+  /* Menu mobile plus large et lisible */
+  .menu{
+    width: min(320px, 92vw);
+    right: 4%;
+  }
+  .menu a{
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1.05rem;
+    justify-content: center;
+  }
 }
+
+}
+
